@@ -1,7 +1,12 @@
-import { Grid, Box, TextField, Button } from "@mui/material";
+import { Grid } from "@mui/material";
+import { Box } from "@mui/material";
+import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import React, { useState } from "react";
+// import { createBrowserHistory } from "react-router-dom";
 
 export default function SignUp() {
+    // const history = createBrowserHistory();
     const [username, setUsername] = useState("");
     const [fullname, setFullname] = useState("");
     const [emailId, setEmailId] = useState("");
@@ -22,7 +27,9 @@ export default function SignUp() {
                 phoneNumber,
                 dateOfBirth
             })
-        }).then(() => {
+        }).then((e) => {
+            // history.push("/home");
+            window.location.href='/home';
             console.log('done');
         })
     }
@@ -37,7 +44,7 @@ export default function SignUp() {
                         <TextField id="standard-basic" label="Full Name" onChange={(e) => setFullname(e.target.value)} variant="standard" />
                         <TextField id="standard-basic" label="Email Id" onChange={(e) => setEmailId(e.target.value)} type="email" variant="standard" />
                         <TextField id="standard-basic" label="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)} variant="standard" />
-                        <TextField id="standard-basic" type="date" onChange={(e) => setDateOfBirth(e.target.value)} variant="standard" />
+                        <TextField id="standard-basic" label="DOB" type="date" onChange={(e) => setDateOfBirth(e.target.value)} variant="standard" />
                     </Box>
                     <Button variant="contained" onClick={handleSignUp}>SignUp</Button>
                 </Grid>
